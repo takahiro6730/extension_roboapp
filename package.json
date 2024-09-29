@@ -1,15 +1,16 @@
 {
   "name": "robosell",
   "displayName": "Robosell",
-  "version": "0.0.1",
+  "version": "10.0.1",
   "description": "For supporting doctrack App Server",
-  "author": "koakmystream",
+  "author": "hayashi",
   "scripts": {
     "dev": "plasmo dev",
     "build": "plasmo build",
     "package": "plasmo package"
   },
   "dependencies": {
+    "axios": "^1.7.7",
     "plasmo": "0.89.1",
     "react": "18.2.0",
     "react-dom": "18.2.0"
@@ -29,6 +30,11 @@
   "manifest": {
     "host_permissions": [
       "https://*/*"
+    ],
+    "permissions": [
+      "tabs",
+      "activeTab",
+      "scripting"
     ]
   }
 }
