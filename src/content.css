@@ -1,0 +1,342 @@
+#mformMFDiv {
+    max-width: 1000px !important;
+    text-align: center !important;
+    margin: 100px auto !important;
+}
+
+.mformButton, .mformClip {
+    margin-left: 30px !important;
+    max-width: 480px !important;
+    padding: 5px !important;
+    word-break: break-all !important;
+    text-transform: none !important;
+    white-space: normal!important;
+}
+
+.MFModal {
+    display: none;
+    position: fixed!important;
+    z-index: 9999!important;
+    left: 0!important;
+    top: 0!important;
+    width: 100%!important;
+    height: 100%!important;
+    overflow: auto!important;
+    background-color: rgb(0, 0, 0)!important;
+    background-color: rgba(0, 0, 0, 0.4)!important;
+    -webkit-animation-name: animatetop!important;
+    -webkit-animation-duration: 0.4s!important;
+}
+
+.MFModal-content {
+    background-color: #e5faef!important;
+    margin: 15% auto!important;
+    padding: 20px!important;
+    border: 1px solid #888!important;
+    width: 80%!important;
+    -webkit-animation-name: animatetop!important;
+    -webkit-animation-duration: 0.4s!important;
+}
+
+.button-container {
+    display: flex!important;
+    justify-content: end!important;
+    align-items: center!important;
+    margin-bottom: 20px!important;
+}
+
+.close-container {
+    display: flex!important;
+    align-items: center!important;
+}
+
+.content-textarea {
+    margin-left: 30px!important;
+    white-space: pre-line!important;
+    text-align: left!important;
+    cursor: pointer!important;
+    background-color: #f3f3f3!important;
+    border: 1px solid #858282!important;
+    border-radius: 3px!important;
+    padding: 5px!important;
+}
+
+.Tabclose {
+    color: #888!important;
+    font-size: 15px!important;
+    margin-right: 30px!important;
+    margin: 0;
+    width: 160px!important;
+    background: #f2f2f2!important;
+    border: 1px solid rgb(170, 170, 170)!important;
+    padding: 4px 16px!important;
+}
+
+.MFinfo {
+    max-width: 350px!important;
+    font-size: 14px!important;
+}
+
+.MFinfo th, .MFinfo td {
+    padding: 4px 8px!important;
+}
+
+.MFinfo thead {
+    background-color: #858282!important;
+    border: 1px solid black!important;
+}
+
+.MFinfo tbody {
+    background-color: #aba4a4!important;
+    border: 1px solid black!important;
+}
+
+.MFresult {
+    color: #aaa!important;
+    float: right!important;
+    font-size: 20px!important;
+    font-weight: bold!important;
+    max-width: 150px!important;
+    height: 48px!important;
+}
+
+.MFresult option {
+    font-size: 20px!important;
+}
+
+.MFclose {
+    color: #aaa!important;
+    float: right!important;
+    font-size: 28px!important;
+    font-weight: bold!important;
+}
+
+.MFclose:hover,
+.MFclose:focus {
+    color: black!important;
+    text-decoration: none!important;
+    cursor: pointer!important;
+}
+
+.row-item-div {
+    display: flex!important;
+    padding-bottom: 20px!important;
+}
+
+.row-item-div-left {
+    width: 120px!important;
+    line-height: 30px !important;
+    text-align: left!important;
+}
+
+
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px!important;
+        opacity: 0!important;
+    }
+
+    to {
+        top: 0!important;
+        opacity: 1!important;
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px!important;
+        opacity: 0!important;
+    }
+
+    to {
+        top: 0!important;
+        opacity: 1!important;
+    }
+}
+
+.mTabModal {
+    display: none;
+    position: fixed!important;
+    z-index: 9999!important;
+    left: 0!important;
+    top: 0!important;
+    width: 100%!important;
+    height: 100%!important;
+    overflow: auto!important;
+    background-color: rgb(0, 0, 0)!important;
+    background-color: rgba(0, 0, 0, 0.4)!important;
+    -webkit-animation-name: animatetop!important;
+    -webkit-animation-duration: 0.4s!important;
+}
+
+.mTabModalContent {
+    background-color: #e5faef!important;
+    margin: 15% auto!important;
+    padding: 20px!important;
+    border: 1px solid #888!important;
+    width: 80%!important;
+    max-width: 800px !important;
+    text-align: center !important;
+    margin: 100px auto !important;
+    -webkit-animation-name: animatetop!important;
+    -webkit-animation-duration: 0.4s!important;
+}
+
+.mTabModalClose{
+    display: flex!important;
+    align-items: center!important;
+    justify-content: end!important;
+}
+
+.mTabModalButtonCross {
+    font-size: 32px!important;
+    cursor: pointer!important;
+}
+
+.mTabModalTextarea {
+    width: 100%!important;
+    height: 500px!important;
+    padding: 12px 20px!important;
+    box-sizing: border-box!important;
+    border: 2px solid #ccc!important;
+    border-radius: 4px!important;
+    background-color: #f8f8f8!important;
+    font-size: 16px!important;
+    resize: none!important;
+}
+
+.mTabModalButtons {
+    width: 100%!important;
+    display: flex!important;
+    justify-content: center!important;
+    gap: 30px!important;
+    margin-top: 20px!important;
+}
+
+/* CSS */
+.mTabModalButtonOpen, .mTabModalButtonCancel {
+  align-items: center!important;
+  background-clip: padding-box!important;
+  background-color: #fa6400!important;
+  border: 1px solid transparent!important;
+  border-radius: .25rem!important;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0!important;
+  box-sizing: border-box!important;
+  color: #fff!important;
+  cursor: pointer!important;
+  display: inline-flex!important;
+  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif!important;
+  font-size: 14px!important;
+  font-weight: 600!important;
+  justify-content: center!important;
+  line-height: 1.25!important;
+  margin: 0!important;
+  min-height: 2rem!important;
+  min-width: 120px!important;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px)!important;
+  position: relative!important;
+  text-decoration: none!important;
+  transition: all 250ms!important;
+  user-select: none!important;
+  -webkit-user-select: none!important;
+  touch-action: manipulation!important;
+  vertical-align: baseline!important;
+  width: auto!important;
+}
+
+.mTabModalButtonOpen:hover, .mTabModalButtonCancel:hover,
+.mTabModalButtonOpen:focus .mTabModalButtonCancel:focus {
+  background-color: #fb8332!important;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px!important;
+}
+
+.mTabModalButtonOpen:hover, .mTabModalButtonCancel:hover {
+  transform: translateY(-1px)!important;
+}
+
+.mTabModalButtonOpen:active, .mTabModalButtonCancel:active {
+  background-color: #c85000!important;
+  box-shadow: rgba(0, 0, 0, .06) 0 2px 4px!important;
+  transform: translateY(0)!important;
+}
+
+.MFOptionGroup {
+    display: flex!important;
+}
+
+.mxResultModal{
+    display: none;
+    position: fixed!important;
+    z-index: 9999!important;
+    left: 0!important;
+    top: 0!important;
+    width: 100%!important;
+    height: 100%!important;
+    overflow: auto!important;
+    background-color: rgb(0, 0, 0)!important;
+    background-color: rgba(0, 0, 0, 0.4)!important;
+    -webkit-animation-name: animatetop!important;
+    -webkit-animation-duration: 0.4s!important;
+}
+
+.ResultModal-content{
+    background-color: #e5faef!important;
+    margin: 15% auto!important;
+    padding: 20px!important;
+    border: 1px solid #888!important;
+    width: 80%!important;
+    max-width: 800px !important;
+    text-align: center !important;
+    margin: 100px auto !important;
+    -webkit-animation-name: animatetop!important;
+    -webkit-animation-duration: 0.4s!important;
+}
+
+.result-container{
+    display: flex!important;
+    justify-content: space-between!important;
+    align-items: center!important;
+    max-height: 40px!important;
+}
+
+.ResultInfo{
+    max-width: 350px!important;
+    max-height: 30px!important;
+}
+
+.ResultInfo td, .ResultInfo th {
+    padding: 0!important;
+}
+
+.RXResult{
+
+}
+
+.XRresultSendBtn{
+
+}
+
+.close-container{
+    color: #aaa!important;
+    float: right!important;
+    font-size: 28px!important;
+    font-weight: bold!important;
+}
+
+.RXclose{
+    color: #aaa!important;
+    float: right!important;
+    font-size: 28px!important;
+    font-weight: bold!important;
+    margin-left: 20px;
+}
+.RXcloseTag{
+    margin-left: 30px!important;
+    white-space: pre-line!important;
+    text-align: left!important;
+    cursor: pointer!important;
+    background-color: #f3f3f3!important;
+    border: 1px solid #858282!important;
+    border-radius: 3px!important;
+    padding: 5px!important;
+}

@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import axios from 'axios';
 
 import "./style.css"
@@ -9,6 +9,31 @@ import MultiUrl from "./multiPages"
 function IndexPopup() {
   const [showApiReg, setShowApiReg] = useState(false);
   const [showMultiurl, setShowMultiUrl] = useState(false);
+  const [isPanelVisible, setPanelVisible] = useState(false);
+
+  useEffect(() => {
+    const checkboxState = localStorage.getItem("checkboxState");
+    console.log("start0----getItem------", checkboxState);
+    setPanelVisible(checkboxState === "true");
+  }, []);
+
+  useEffect(() => {
+    console.log("start1---isPanelVisible after update----", isPanelVisible);
+  }, [isPanelVisible]);
+
+  const handleShowPanel = async (event: any) => {
+    const checked = event.target.checked;
+    localStorage.setItem("checkboxState", checked.toString());
+    setPanelVisible(checked);
+    const sendData = await getUserData();
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+      if (tabs[0]?.id) {
+        chrome.tabs.sendMessage(tabs[0].id, { action: "FLAG_PANEL", data: sendData, sendFlag: checked }, (response) => {
+          console.log(response)
+        })
+      }
+    })
+  };
 
   const getCurrentDomain = async () => {
     return new Promise((resolve, reject) => {
@@ -37,15 +62,38 @@ function IndexPopup() {
     console.log(response);
     const scriptData = JSON.parse(response.data.user_data);
     localStorage.setItem("MFORM_MODAL_DATA", scriptData);
+    return scriptData;
   };
 
   const handleAutoFillClick = async () => {
-    await getUserData();
+    const sendData = await getUserData();
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
       if (tabs[0]?.id) {
-        chrome.tabs.sendMessage(tabs[0]?.id, { method: 'getSelection' }, response => {
-          console.log(response);
-        });
+        chrome.tabs.sendMessage(tabs[0].id, { action: "AUTOFILL", data: sendData }, (response) => {
+          console.log(response)
+        })
+      }
+    })
+  }
+
+  const handleManualCopy = async () => {
+    const sendData = await getUserData();
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+      if (tabs[0]?.id) {
+        chrome.tabs.sendMessage(tabs[0].id, { action: "MANUAL_COPY", data: sendData }, (response) => {
+          console.log(response)
+        })
+      }
+    })
+  }
+
+  const handleRegisterResult = async () => {
+    const sendData = await getUserData();
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+      if (tabs[0]?.id) {
+        chrome.tabs.sendMessage(tabs[0].id, { action: "REGISTER_RESULT", data: sendData, user_api_key: localStorage.getItem("user_api_key") }, (response) => {
+          console.log(response)
+        })
       }
     })
   }
@@ -76,14 +124,19 @@ function IndexPopup() {
             >
               入力パッド自動表示
             </span>
-            <input type="checkbox" value="" className="sr-only peer" />
+            <input type="checkbox" className="sr-only peer" id="enableShowPannel"
+              onChange={handleShowPanel}
+              checked={isPanelVisible}
+            />
             <div className="relative w-16 h-8 bg-gray-200 peer-focus:outline-none peer-focus:ring-5 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-7 after:w-7 after:transition-all peer-checked:bg-blue-600"></div>
           </label>
         </div>
         <div className="flex justify-between p-2 px-6">
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-base">
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-base"
+            onClick={handleManualCopy}>
             入力パッド手動コピー</button>
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-base">
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-base"
+            onClick={handleRegisterResult}>
             結果登録
           </button>
         </div>
